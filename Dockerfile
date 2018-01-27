@@ -15,12 +15,12 @@ RUN apk add --no-cache alpine-sdk postgresql-dev python-dev build-base\
  && addgroup -g 50 -S pgadmin \
  && adduser -D -S -h /pgadmin -s /sbin/nologin -u 1000 -G pgadmin pgadmin \
  && mkdir -p /pgadmin/config /pgadmin/storage \
- && chown -R 1000:50 /pgadmin
+ && chown -R 1000:50 /pgadmin /var/lib/pgadmin
 
 EXPOSE 8080
 
-COPY LICENSE config_distro.py /usr/local/lib/python2.7/site-packages/pgadmin4/
+COPY LICENSE config_distro.py /usr/lib/python2.7/site-packages/pgadmin4/
 
 USER pgadmin:pgadmin
-CMD ["python", "./usr/local/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py"]
+CMD ["python", "./usr/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py"]
 VOLUME /pgadmin/
