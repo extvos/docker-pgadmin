@@ -1,4 +1,4 @@
-FROM extvos/alpine
+FROM extvos/python
 MAINTAINER  "Mingcai SHEN <archsh@gmail.com>"
 ENV PGADMIN_VERSION=2.1 \
     PYTHONDONTWRITEBYTECODE=1
