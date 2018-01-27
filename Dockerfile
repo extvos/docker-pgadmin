@@ -14,8 +14,8 @@ RUN apk add --no-cache alpine-sdk postgresql-dev python-dev build-base\
  && apk del alpine-sdk python-dev build-base \
  && addgroup -g 50 -S pgadmin \
  && adduser -D -S -h /pgadmin -s /sbin/nologin -u 1000 -G pgadmin pgadmin \
- && mkdir -p /pgadmin/config /pgadmin/storage \
- && chown -R 1000:50 /pgadmin /var/lib/pgadmin
+ && mkdir -p /pgadmin/config /pgadmin/storage  /var/lib/pgadmin\
+ && chown -R 1000:50 /pgadmin /pgadmin/config /pgadmin/storage  /var/lib/pgadmin
 
 EXPOSE 8080
 
