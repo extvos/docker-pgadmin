@@ -20,7 +20,9 @@ RUN apk add --no-cache alpine-sdk postgresql-dev python-dev build-base\
 EXPOSE 8080
 
 COPY LICENSE config_distro.py /usr/lib/python2.7/site-packages/pgadmin4/
-
+COPY entry.sh /
 USER pgadmin:pgadmin
-CMD ["python", "./usr/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py"]
 VOLUME /pgadmin/
+# CMD ["python", "./usr/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py"]
+# Start the service
+ENTRYPOINT ["/bin/sh", "/entry.sh"]
