@@ -23,6 +23,8 @@ COPY LICENSE config_distro.py /usr/lib/python2.7/site-packages/pgadmin4/
 COPY entry.sh /
 USER pgadmin:pgadmin
 VOLUME /pgadmin/
+ENV PGADMIN_DEFAULT_EMAIL container@pgadmin.org
+ENV PGADMIN_DEFAULT_PASSWORD gro.nimdagp
 # CMD ["python", "./usr/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py"]
 # Start the service
 ENTRYPOINT ["/bin/sh", "/entry.sh"]
