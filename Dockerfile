@@ -16,8 +16,8 @@ RUN addgroup -g 50 -S pgadmin \
     && tar zxf /tmp/pgadmin4-${PGADMIN_VERSION}.tar.gz -C /home/pgadmin/ \
     && rm -f /tmp/pgadmin4-${PGADMIN_VERSION}.tar.gz
 
-COPY LICENSE config_distro.py requirements.txt /home/pgadmin/pgadmin4-${PGADMIN_VERSION}/
-
+COPY requirements.txt /home/pgadmin/pgadmin4-${PGADMIN_VERSION}/
+COPY LICENSE config_distro.py /home/pgadmin/pgadmin4-${PGADMIN_VERSION}/web
 RUN pip install --upgrade pip \
     && pip install -r /home/pgadmin/pgadmin4-${PGADMIN_VERSION}/requirements.txt
 
