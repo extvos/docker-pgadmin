@@ -12,4 +12,4 @@
 export PGADMIN_SETUP_EMAIL=${PGADMIN_DEFAULT_EMAIL}
 export PGADMIN_SETUP_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
 
-/usr/bin/python /usr/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py
+/usr/bin/python /home/pgadmin/pgadmin4-${PGADMIN_VERSION}/web/pgAdmin4.py
