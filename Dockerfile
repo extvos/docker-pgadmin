@@ -25,4 +25,5 @@ USER pgadmin:pgadmin
 VOLUME /pgadmin/
 ENV PGADMIN_DEFAULT_EMAIL container@pgadmin.org
 ENV PGADMIN_DEFAULT_PASSWORD gro.nimdagp
-ENTRYPOINT ["/bin/sh", "/entry.sh"]
+ENTRYPOINT ["/entry.sh"]
+CMD ["/usr/bin/python", "/home/pgadmin/pgadmin4-${PGADMIN_VERSION}/web/pgAdmin4.py"]
