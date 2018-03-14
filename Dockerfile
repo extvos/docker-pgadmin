@@ -4,8 +4,9 @@ ENV PGADMIN_VERSION=2.1 \
     PYTHONDONTWRITEBYTECODE=1
 
 # Install postgresql tools for backup/restore and dependencies
-RUN apk add --no-cache postgresql-client postgresql-libs py2-psycopg2 wget curl py2-crypto\
- && cp /usr/bin/psql /usr/bin/pg_dump /usr/bin/pg_dumpall /usr/bin/pg_restore /usr/local/bin/ 
+RUN apk add --no-cache postgresql postgresql-libs py2-psycopg2 wget curl py2-crypto\
+ && cp /usr/bin/psql /usr/bin/pg_dump /usr/bin/pg_dumpall /usr/bin/pg_restore /usr/local/bin/ \
+ && apk del postgresql
 RUN addgroup -g 50 -S pgadmin \
     && adduser -D -S -h /home/pgadmin -s /sbin/nologin -u 1000 -G pgadmin pgadmin \
     && mkdir -p /home/pgadmin/config /home/pgadmin/storage  /var/lib/pgadmin /var/log/pgadmin \
